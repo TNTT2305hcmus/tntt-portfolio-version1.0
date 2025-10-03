@@ -16,6 +16,7 @@
   --white-gray: rgba(255,255,255,0.9);
   --black-gray: rgba(0, 0,0, 0.6);
   --black-bg-blur: rgba(0, 0, 0, 0.8);
+  --line-color: #adadad;
 }
 
 body {
@@ -280,7 +281,7 @@ header.scrolled {
 }
 
 #projects {
-  margin-bottom: 1000px;
+  margin-bottom: 100px;
 }
 
 #projects h1{
@@ -309,6 +310,11 @@ header.scrolled {
   margin-right: 50px;
   height: 250px;
   width: 350px;
+  object-fit: cover;
+}
+
+.project img:hover {
+  border: 2px solid black;
 }
 
 .info_project{
@@ -329,6 +335,8 @@ header.scrolled {
   border: 2px solid black;
   border-radius: 15px;
   text-align: center;
+  font-size: 15px;
+  transition: 0.3s;
 }
 
 .language:hover{
@@ -345,11 +353,10 @@ header.scrolled {
   margin-top: 20px;
   border-radius: 15px;
   background-color: var(--orange-blur-icon);
-  border: none;
-  outline: none;
+  border: 3px solid var(--orange-blur-icon);
   color: white;
   font-weight: bold;
-  transition: 0.3s ease;
+  transition: 0.6s ease;
 }
 
 .info_project button:hover{
@@ -358,10 +365,192 @@ header.scrolled {
   color: var(--orange-blur-icon);
 }
 
+.line_language.bottom{
+  background-color: black;
+  color: var(--orange-blur-icon);
+}
 
+#achievements{
+  margin-bottom: 100px;
+}
 
+.achievement_title {
+    margin-left: 200px;
+}
 
+.achievement_title p{
+  font-size: 20px;
+}
 
+.achievement_title h1{
+  font-size: 50px;
+}
+
+.achievement_show{
+  width: 80%;
+  height: 100vh;
+  background-color: rgba(103, 99, 99, 0.6);
+  margin: 20px auto;
+  border-radius: 20px;
+}
+
+.recommended {
+  width: 100%;
+  height: 100vh;
+  background-color: #000000;
+  margin-bottom: 50px;
+  padding-top: 30px;
+  color: white;
+}
+
+.question{
+  width: 70%; 
+  display: flex;
+  justify-content: space-between;
+  margin-left: 200px;
+  margin-bottom: 45px;
+}
+
+.question h1{
+  font-size: 60px;
+}
+
+.slide_icon {
+  width: 450px;
+  display: flex;
+  font-size: 65px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.slide_icon .left, .slide_icon .right{
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  border: 2px solid white;
+  margin-left: 10px;
+  transition: 0.4s;
+}
+
+.slide_icon .left:hover, .slide_icon .right:hover {
+  background-color: green;
+}
+
+.content_recommend {
+  width: 70%;
+  margin-left: 200px;
+  display: flex;
+  gap: 50px;
+}
+
+.content_recommend img{
+  height: 400px;
+}
+
+.detail_commend > i {
+  font-size: 80px;
+  color: var(--orange-blur-icon);
+}
+
+.detail_commend blockquote {
+  color: white;
+  font-size: 18px;
+  margin: 25px 0;
+}
+
+.detail_commend blockquote i {
+  font-size: 15px;
+}
+
+.detail_commend p {
+  color: var(--white-gray);
+}
+
+#contact {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    padding-top: 50px;
+    margin-bottom: 70px;
+}
+
+.contact_title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact_title h1{
+  font-size: 50px;
+}
+
+.contact_title p{
+  font-size: 20px;
+}
+
+.contact_form{
+    width: 400px;
+    height: 500px;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 40px;
+}
+
+.contact_form h1{
+    text-align: center;
+    color: var(--orange-blur-icon);
+}
+
+.form-control{
+    width: 100%;
+    position: relative;
+    margin-top: 40px;
+}
+
+.form-control input {
+    width: 100%;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid var(--line-color);
+    font-size: 16px;
+}
+
+.form-control span{
+    position: absolute;
+    border-bottom: 3px solid var(--orange-blur-icon);
+    width: 0%;
+    top: 38px;
+    left: 0;
+    transition: 0.3s;
+}
+
+.form-control input:focus ~ span {
+    width: 100%;
+}
+
+.submit-btn{
+    width: 100%;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    background-color: var(--orange-blur-icon);
+    border: 2px solid var(--orange-blur-icon);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn:hover{
+    background: white;
+    color: var(--orange-blur-icon);
+    border: 2px solid var(--orange-blur-icon);
+
+}
 
 
 
