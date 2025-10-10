@@ -107,25 +107,6 @@ header.scrolled {
   text-shadow: 2px 2px 4px var(--black-bg-blur);
 }
 
-/* .avartar{
-  width: 350px;
-  height: 350px;
-  border: none;
-  outline: none;
-  border-radius: 50%;
-  overflow: hidden;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-self: center;
-  box-shadow:
-    0 0 30px rgba(172, 170, 170, 0.9),   
-    0 0 60px rgba(93, 85, 155, 0.8),   
-    0 0 100px rgba(107, 103, 230, 0.7),  
-    0 0 140px rgba(135, 75, 111, 0.6);
-} */
-
 /* Edit greeting firtly */
 .greeting h1 {
   font-size: 55px;
@@ -593,6 +574,7 @@ footer {
   color: black;
   font-size: 50px;
   margin: 0 40px;
+  text-decoration: none;
   transition: 0.25s;
 }
 
