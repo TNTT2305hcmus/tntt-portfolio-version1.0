@@ -1,10 +1,34 @@
 const header = document.querySelector("header");
 const introduction = document.querySelector("#introduction");
+const contactBtn = document.getElementById("contact-button");
+const contactForm = document.getElementById("contact");
 const animationElements = document.querySelectorAll('.show-on-scroll');
 const numberCounterUp = document.querySelectorAll('.number');
 const heightScreen = window.innerHeight;
 
 let hasCounterAnimated = false;
+
+const projectLinks = {
+  "project_portfolio" : "https://github.com/TNTT2305hcmus/Portfolio_Version_v1.0",
+  "project_NFTs": "https://github.com/TNTT2305hcmus/React_Lab_freeCodeCamp",
+  "project_js_freeCodeCamp" : "https://github.com/TNTT2305hcmus/JS_freeCodeCamp_Project",
+  "project_responsive_web_freeCodeCamp" : "https://github.com/TNTT2305hcmus/HTML-CSS_freeCodeCamp_Project"
+}
+
+// Add event to button
+contactBtn.addEventListener("click", () => {
+  contactForm.scrollIntoView({
+    behavior: "smooth"
+  }); 
+});
+
+function viewGithub(){
+  Object.keys(projectLinks).forEach(buttonID => {
+    document.getElementById(`${buttonID}`).addEventListener("click", () => {
+      window.open(projectLinks[buttonID], "_blank");
+    })
+  })
+}
 
 // Toggle animation for elements when they come into view
 function toggleAnimationElementIntoWindow(element) {
@@ -33,7 +57,7 @@ function counter(el) {
     current += increment;
     if (current >= to) {
       numberEl.childNodes[0].textContent = `${to}`;
-      clearInterval(timer); // FIX: Cần truyền timer vào
+      clearInterval(timer);
     } else {
       numberEl.childNodes[0].textContent = `${Math.floor(current)}`;
     }
@@ -81,3 +105,4 @@ window.addEventListener("scroll", handleScroll);
 
 // Initial check on page load
 checkAnimation();
+viewGithub();
