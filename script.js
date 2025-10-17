@@ -72,44 +72,6 @@ const resetForm = () => {
 };
 
 
-// ------------------------- UPDATE COMMENT DISPLAY -------------------------
-const updateComment = () => {
-  if (commentArray.length === 0) return;
-
-  const current = commentArray[currentCommentIndex];
-  imgCommentPerson.src =
-    currentCommentIndex % 2 === 0
-      ? "source_img/avatar1.jpg"
-      : "source_img/avatar3.jpg";
-  quoteCommentMessage.innerHTML = `
-    <i class='bx bxs-quote-left'></i>
-    ${current.message}
-    <i class='bx bxs-quote-right'></i>
-  `;
-  commentRoler.textContent = current.relationship;
-  commentName.textContent = current.userName;
-};
-
-
-// ------------------------- SLIDE EVENTS -------------------------
-slideCommentIconLeft.addEventListener("click", () => {
-  if (commentArray.length === 0) return;
-  currentCommentIndex = currentCommentIndex === 0 ? commentArray.length - 1 : currentCommentIndex - 1;
-  updateComment();
-});
-
-slideCommentIconRight.addEventListener("click", () => {
-  if (commentArray.length === 0) return;
-  currentCommentIndex = currentCommentIndex === commentArray.length - 1 ? 0 : currentCommentIndex + 1;
-  updateComment();
-});
-
-document.querySelector(".contact_form form").addEventListener("submit", addOrUpdate);
-
-updateComment();
-
-
-
 const heightScreen = window.innerHeight;
 let hasCounterAnimated = false;
 
