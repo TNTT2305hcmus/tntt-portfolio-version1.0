@@ -374,7 +374,7 @@ header.scrolled {
 }
 
 #achievements{
-  margin-bottom: 100px;
+  margin-bottom: 30px;
 }
 
 .achievement_title {
@@ -391,11 +391,68 @@ header.scrolled {
 
 .achievement_show{
   width: 80%;
-  height: 100vh;
-  background-color: rgba(103, 99, 99, 0.6);
+  height: 60vh;
   margin: 20px auto;
   border-radius: 20px;
+  position: relative;
 }
+
+.show-button{
+  width: 100%;
+  height: 100%;
+  margin-top: 100px;
+  margin-left: 130px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.achievement_show img{
+  width: 300px;
+  transform: rotate(-60deg) scaleX(-1);
+  position: absolute;
+  top: -70px;
+  left: 450px;
+}
+
+.show-title{
+  width: 400px;
+  text-align: center;
+  position: absolute;
+  color: rgb(245, 159, 0);
+  font-size: 40px;
+  top: -100px;
+  left: 700px;
+}
+
+.major {
+  width: 150px;
+  height: 60px;
+  border: 2px solid black;
+  margin-left: 40px;
+  border-radius: 10px;
+  background-color: white;
+  border: none;
+  box-shadow: 0 4px 4px 3px var(--black-bg-blur);
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.major:hover{
+  transform: scale(1.2);
+}
+
+
+
+
+
+
+
+
+
+
 
 .recommended {
   width: 100%;
