@@ -20,6 +20,15 @@ const slideCommentIconRight = document.querySelector(".slide_icon .right");
 const commentArray = JSON.parse(localStorage.getItem("data")) || [];
 let currentForm = {};
 let currentCommentIndex = 0;
+const heightScreen = window.innerHeight;
+let hasCounterAnimated = false;
+
+const projectLinks = {
+  "project_portfolio" : "https://github.com/TNTT2305hcmus/Portfolio_Version_v1.0",
+  "project_NFTs": "https://github.com/TNTT2305hcmus/React_Lab_freeCodeCamp",
+  "project_js_freeCodeCamp" : "https://github.com/TNTT2305hcmus/JS_freeCodeCamp_Project",
+  "project_responsive_web_freeCodeCamp" : "https://github.com/TNTT2305hcmus/HTML-CSS_freeCodeCamp_Project"
+}
 
 
 // ------------------------- VALIDATION -------------------------
@@ -71,16 +80,42 @@ const resetForm = () => {
   currentForm = {};
 };
 
+// ------------------------- UPDATE COMMENT DISPLAY -------------------------
+const updateComment = () => {
+  if (commentArray.length === 0) return;
 
-const heightScreen = window.innerHeight;
-let hasCounterAnimated = false;
+  const current = commentArray[currentCommentIndex];
+  imgCommentPerson.src =
+    currentCommentIndex % 2 === 0
+      ? "source_img/avatar1.jpg"
+      : "source_img/avatar3.jpg";
+  quoteCommentMessage.innerHTML = `
+    <i class='bx bxs-quote-left'></i>
+    ${current.message}
+    <i class='bx bxs-quote-right'></i>
+  `;
+  commentRoler.textContent = current.relationship;
+  commentName.textContent = current.userName;
+};
 
-const projectLinks = {
-  "project_portfolio" : "https://github.com/TNTT2305hcmus/Portfolio_Version_v1.0",
-  "project_NFTs": "https://github.com/TNTT2305hcmus/React_Lab_freeCodeCamp",
-  "project_js_freeCodeCamp" : "https://github.com/TNTT2305hcmus/JS_freeCodeCamp_Project",
-  "project_responsive_web_freeCodeCamp" : "https://github.com/TNTT2305hcmus/HTML-CSS_freeCodeCamp_Project"
-}
+
+// ------------------------- SLIDE EVENTS -------------------------
+slideCommentIconLeft.addEventListener("click", () => {
+  if (commentArray.length === 0) return;
+  currentCommentIndex = currentCommentIndex === 0 ? commentArray.length - 1 : currentCommentIndex - 1;
+  updateComment();
+});
+
+slideCommentIconRight.addEventListener("click", () => {
+  if (commentArray.length === 0) return;
+  currentCommentIndex = currentCommentIndex === commentArray.length - 1 ? 0 : currentCommentIndex + 1;
+  updateComment();
+});
+
+document.querySelector(".contact_form form").addEventListener("submit", addOrUpdate);
+
+updateComment();
+
 
 // Add event to button
 contactBtn.addEventListener("click", () => {
