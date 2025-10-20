@@ -21,7 +21,7 @@
 
 body {
   height: 100vh;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Allura', cursive;
   overflow: auto;
   color: black;
   background: white;
@@ -375,6 +375,8 @@ header.scrolled {
 
 #achievements{
   margin-bottom: 30px;
+  font-family: 'Playfair Display', serif;
+  position: relative;
 }
 
 .achievement_title {
@@ -444,14 +446,103 @@ header.scrolled {
   transform: scale(1.2);
 }
 
+.gallery{
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  position: absolute;
+  top: 0px;
+  z-index: 1;
+  color: white;
+  outline: none;
+  border: none;
+}
 
+.hide {
+  opacity: 0;
+}
 
+.gallery_title{
+  margin-top: 10px;
+  text-align: center;
+}
 
+.gallery_title p{
+  position: absolute;
+}
 
+#estd {
+  top: 20px;
+  left: 380px;
+}
 
+#course {
+  top: 125px;
+  left: 1020px;
+}
 
+.gallery_title h1 {
+  font-size: 100px;
+  text-shadow: 4px 4px 8px var(--white-blur);
+}
 
+.gallery i {
+  font-size: 150px;
+  top: 320px;
+  position: absolute;
+  transition: 0.3 ease;
+}
 
+.gallery i:hover{
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.bx-chevron-left{
+  left: 100px;
+}
+
+.bx-chevron-right{
+  right: 100px;
+}
+
+.certifications {
+  width: 1000px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto;
+}
+
+.certification{
+  width: 300px;
+  height: 450px;
+  border: 2px solid white;
+  padding: 20px;
+  text-align: center;
+  color: black;
+  margin: 10px 30px;
+  background-color: rgb(242, 242, 242);
+  box-shadow:
+      0 10px 25px rgba(0, 0, 0, 0.4),     
+  inset 12px 0 25px rgba(0, 0, 0, 0.25), 
+  inset -12px 0 25px rgba(0, 0, 0, 0.25), 
+  inset 0 0 30px rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info{
+  text-align: start;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.certification img {
+  width: 100%;
+  height: 150px;
+}
 
 
 .recommended {
