@@ -17,6 +17,7 @@
   --black-gray: rgba(0, 0,0, 0.6);
   --black-bg-blur: rgba(0, 0, 0, 0.8);
   --line-color: #adadad;
+  --gray-bg: rgb(242, 242, 242);
 }
 
 body {
@@ -24,7 +25,7 @@ body {
   font-family: 'Allura', cursive;
   overflow: auto;
   color: black;
-  background: white;
+  background: var(--gray-bg);
 }
 
 /* Edit header (contain logo img + navbar) */
@@ -109,7 +110,7 @@ header.scrolled {
 
 /* Edit greeting firtly */
 .greeting h1 {
-  font-size: 55px;
+  font-size: 50px;
 }
 
 .greeting p{
@@ -132,8 +133,9 @@ header.scrolled {
   display: flex;
   align-items: center;
   margin-top: 40px;
-  transition: 0.5s;
+  transition: 0.8s;
   cursor: pointer;
+  font-family: 'Allura', cursive;
 }
 
 .greeting button:hover{
@@ -523,7 +525,7 @@ header.scrolled {
   text-align: center;
   color: black;
   margin: 10px 30px;
-  background-color: rgb(242, 242, 242);
+  background-color: var(--gray-bg);
   box-shadow:
       0 10px 25px rgba(0, 0, 0, 0.4),     
   inset 12px 0 25px rgba(0, 0, 0, 0.25), 
@@ -642,9 +644,9 @@ header.scrolled {
 .contact_form{
     width: 420px;
     height: 540px;
-    background-color: white;
+    background-color: var(--gray-bg);
     border-radius: 10px;
-    border: 2px solid black;
+    border: 2px solid var(--line-color);
     padding: 40px;
 }
 
@@ -666,6 +668,9 @@ header.scrolled {
     border: none;
     border-bottom: 2px solid var(--line-color);
     font-size: 16px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: var(--gray-bg);
 }
 
 .form-control textarea {
