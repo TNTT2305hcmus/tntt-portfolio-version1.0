@@ -23,6 +23,157 @@ let currentCommentIndex = 0;
 const heightScreen = window.innerHeight;
 let hasCounterAnimated = false;
 
+
+const majorBtn = document.querySelectorAll('.major_btn');
+const gallery = document.querySelector(".gallery");
+
+const initCertificationGallery = `
+  <i class='bx bx-chevron-left'></i>
+  <i class='bx bx-chevron-right'></i>
+  <div class="gallery_title">
+      <p id="estd_coursera">estd 2024</p>
+      <h1>CERTIFICATION</h1>
+      <p id="course">COURSERA PLUS</p>
+  </div>
+  <div class="certifications">
+      <div class="certification">
+          <div class="info"><p>freeCodeCamp</p><p>26.09.2025</p></div>
+          <img src="certification_img/JavaScript_Algorithm_and_Data_Structure.png" alt="JS">
+          <h3>JavaScript Algorithms</h3>
+      </div>
+      <div class="certification">
+          <div class="info"><p>Coursera</p><p>30.09.2025</p></div>
+          <img src="certification_img/Solidity_Mastery.png" alt="Solidity">
+          <h3>Solidity Mastery</h3>
+      </div>
+      <div class="certification">
+          <div class="info"><p>freeCodeCamp</p><p>21.09.2025</p></div>
+          <img src="certification_img/Responsive_Web_Design.png" alt="Responsive Web">
+          <h3>Responsive Web Design</h3>
+      </div>
+  </div>
+`;
+
+const initEducationGallery = `
+  <div class="gallery_title">
+    <p id="estd_education">estd 2019</p>
+    <h1>EDUCATION</h1>
+    <p id="education_name">Cao Nguyen High School - HCMUS</p>
+  </div>
+  <div class="certifications">
+      <div class="certification">
+          <div class="info"><p>University Of Science - VNUHCM</p><p>2023 - 2027</p></div>
+          <img src="certification_img/JavaScript_Algorithm_and_Data_Structure.png" alt="Degree">
+          <h3>Bachelor of Software Engineering</h3>
+      </div>
+      <div class="certification">
+          <div class="info"><p>Cao Nguyen High School</p><p>2019 - 2022</p></div>
+          <img src="certification_img/Solidity_Mastery.png" alt="Award">
+          <h3>Valedictorian of School</h3>
+      </div>
+  </div>
+`;
+
+const initActivitiesGallery = `
+  <div class="gallery_title">
+    <p id="estd_activities">estd 2023</p>
+    <h1>ACTIVITIES</h1>
+    <p id="activies_group_name">Volunteering of HCMUS</p>
+  </div>
+  <div class="certifications">
+      <div class="certification">
+          <div class="info"><p>Volunteering of HCMUS</p><p>09.09.2023</p></div>
+          <img src="certification_img/JavaScript_Algorithm_and_Data_Structure.png" alt="Volunteer">
+          <h3>Member</h3>
+      </div>
+  </div>
+`;
+
+const galleries = {
+  education: initEducationGallery,
+  certificate: initCertificationGallery,
+  activities: initActivitiesGallery
+};
+
+const showGallery = (e) => {
+  const type = e.target.value;
+  gallery.innerHTML = galleries[type] || "";
+  gallery.classList.remove("hide");
+  document.body.style.overflow = "hidden";
+};
+
+
+majorBtn.forEach(btn => btn.addEventListener('click', showGallery));
+
+gallery.addEventListener("click", (e) => {
+  if (e.target === e.currentTarget) {
+    gallery.classList.add("hide");
+    document.body.style.overflow = "auto";
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const projectLinks = {
   "project_portfolio" : "https://github.com/TNTT2305hcmus/Portfolio_Version_v1.0",
   "project_NFTs": "https://github.com/TNTT2305hcmus/React_Lab_freeCodeCamp",
@@ -85,10 +236,8 @@ const updateComment = () => {
   if (commentArray.length === 0) return;
 
   const current = commentArray[currentCommentIndex];
-  imgCommentPerson.src =
-    currentCommentIndex % 2 === 0
-      ? "source_img/avatar1.jpg"
-      : "source_img/avatar3.jpg";
+  let srcIndex = currentCommentIndex % 3;
+  imgCommentPerson.src = `source_img/avatar${srcIndex}.jpg`;
   quoteCommentMessage.innerHTML = `
     <i class='bx bxs-quote-left'></i>
     ${current.message}
@@ -113,9 +262,6 @@ slideCommentIconRight.addEventListener("click", () => {
 });
 
 document.querySelector(".contact_form form").addEventListener("submit", addOrUpdate);
-
-updateComment();
-
 
 // Add event to button
 contactBtn.addEventListener("click", () => {
@@ -208,3 +354,4 @@ window.addEventListener("scroll", handleScroll);
 // Initial check on page load
 checkAnimation();
 viewGithub();
+updateComment();
