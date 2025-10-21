@@ -377,7 +377,7 @@ header.scrolled {
 
 #achievements{
   margin-bottom: 30px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Allura', cursive;
   position: relative;
 }
 
@@ -429,23 +429,24 @@ header.scrolled {
   left: 700px;
 }
 
-.major {
+.major_btn {
   width: 150px;
   height: 60px;
-  border: 2px solid black;
   margin-left: 40px;
   border-radius: 10px;
   background-color: white;
   border: none;
-  box-shadow: 0 4px 4px 3px var(--black-bg-blur);
+  box-shadow: 0 6px 12px var(--black-bg-blur);
   font-size: 20px;
   font-weight: bold;
+  font-family: 'Allura', cursive;
   cursor: pointer;
   transition: 0.5s ease;
 }
 
-.major:hover{
-  transform: scale(1.2);
+.major_btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .gallery{
@@ -458,10 +459,18 @@ header.scrolled {
   color: white;
   outline: none;
   border: none;
+  font-family: 'Playfair Display', serif;
+  transition: transform 0.5s ease;
 }
 
-.hide {
+.gallery:not(.hide) {
+  opacity: 1;
+  visibility: visible;
+}
+
+.gallery.hide {
   opacity: 0;
+  visibility: hidden;
 }
 
 .gallery_title{
@@ -473,14 +482,34 @@ header.scrolled {
   position: absolute;
 }
 
-#estd {
+#estd_coursera {
   top: 20px;
   left: 380px;
+}
+
+#estd_education{
+  top: 20px;
+  left: 460px;
+}
+
+#estd_activities{
+  top: 20px;
+  left: 500px;
 }
 
 #course {
   top: 125px;
   left: 1020px;
+}
+
+#education_name{
+  top: 125px;
+  left: 805px;
+}
+
+#activies_group_name{
+  top: 125px;
+  left: 870px;
 }
 
 .gallery_title h1 {
@@ -547,6 +576,27 @@ header.scrolled {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .recommended {
   width: 100%;
   height: 100vh;
@@ -598,6 +648,7 @@ header.scrolled {
 
 .content_recommend img{
   height: 400px;
+  width: 400px;
 }
 
 .detail_commend > i {
