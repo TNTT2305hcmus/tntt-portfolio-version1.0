@@ -25,16 +25,19 @@ let hasCounterAnimated = false;
 
 
 const majorBtn = document.querySelectorAll('.major_btn');
-const gallery = document.querySelector(".gallery");
+const galleryShowComponent = document.querySelector(".gallery_show");
+
+/*
+  <div class="gallery_title">
+    <p id="estd_coursera">estd 2024</p>
+    <h1>CERTIFICATION</h1>
+    <p id="course">COURSERA PLUS</p>
+  </div>
+*/
 
 const initCertificationGallery = `
   <i class='bx bx-chevron-left'></i>
   <i class='bx bx-chevron-right'></i>
-  <div class="gallery_title">
-      <p id="estd_coursera">estd 2024</p>
-      <h1>CERTIFICATION</h1>
-      <p id="course">COURSERA PLUS</p>
-  </div>
   <div class="certifications">
       <div class="certification">
           <div class="info"><p>freeCodeCamp</p><p>26.09.2025</p></div>
@@ -55,11 +58,6 @@ const initCertificationGallery = `
 `;
 
 const initEducationGallery = `
-  <div class="gallery_title">
-    <p id="estd_education">estd 2019</p>
-    <h1>EDUCATION</h1>
-    <p id="education_name">Cao Nguyen High School - HCMUS</p>
-  </div>
   <div class="certifications">
       <div class="certification">
           <div class="info"><p>University Of Science - VNUHCM</p><p>2023 - 2027</p></div>
@@ -75,11 +73,6 @@ const initEducationGallery = `
 `;
 
 const initActivitiesGallery = `
-  <div class="gallery_title">
-    <p id="estd_activities">estd 2023</p>
-    <h1>ACTIVITIES</h1>
-    <p id="activies_group_name">Volunteering of HCMUS</p>
-  </div>
   <div class="certifications">
       <div class="certification">
           <div class="info"><p>Volunteering of HCMUS</p><p>09.09.2023</p></div>
@@ -91,26 +84,23 @@ const initActivitiesGallery = `
 
 const galleries = {
   education: initEducationGallery,
-  certificate: initCertificationGallery,
+  certification: initCertificationGallery,
   activities: initActivitiesGallery
 };
 
 const showGallery = (e) => {
   const type = e.target.value;
-  gallery.innerHTML = galleries[type] || "";
-  gallery.classList.remove("hide");
-  document.body.style.overflow = "hidden";
+  galleryShowComponent.innerHTML = galleries[type] || "";
 };
 
-
+majorBtn.forEach(btn => {
+  btn.addEventListener("click", () => {
+    majorBtn.forEach(button => button.classList.remove("active"));
+    btn.classList.add("active");
+  })
+})
 majorBtn.forEach(btn => btn.addEventListener('click', showGallery));
 
-gallery.addEventListener("click", (e) => {
-  if (e.target === e.currentTarget) {
-    gallery.classList.add("hide");
-    document.body.style.overflow = "auto";
-  }
-});
 
 
 
