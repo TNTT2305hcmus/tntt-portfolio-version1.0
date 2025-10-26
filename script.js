@@ -23,40 +23,73 @@ let currentCommentIndex = 0;
 const heightScreen = window.innerHeight;
 let hasCounterAnimated = false;
 
+const projectLinks = {
+  "project_portfolio" : "https://github.com/TNTT2305hcmus/Portfolio_Version_v1.0",
+  "project_NFTs": "https://github.com/TNTT2305hcmus/React_Lab_freeCodeCamp",
+  "project_js_freeCodeCamp" : "https://github.com/TNTT2305hcmus/JS_freeCodeCamp_Project",
+  "project_responsive_web_freeCodeCamp" : "https://github.com/TNTT2305hcmus/HTML-CSS_freeCodeCamp_Project"
+}
 
+
+// ==================== CONSTANTS & DATA ====================
+const courseName = ["Coursera", "freeCodeCamp"];
+
+const certificationImgArray = [
+  {
+    linkImg: "JavaScript_Algorithm_and_Data_Structure.png",
+    course: courseName[1],
+    time: "26.09.2025",
+    title: "JavaScript"
+  },
+  {
+    linkImg: "Solidity_Mastery.png",
+    course: courseName[0],
+    time: "30.10.2025",
+    title: "Solidity"
+  },
+  {
+    linkImg: "Responsive_Web_Design.png",
+    course: courseName[1],
+    time: "29.09.2025",
+    title: "Responsive Web Design"
+  },
+  {
+    linkImg: "Foundation_Solidity_Smart_Contract_Development.jpg",
+    course: courseName[0],
+    time: "10.09.2025",
+    title: "Foundation of Solidity"
+  },
+  {
+    linkImg: "Blockchain_Basics.png",
+    course: courseName[0],
+    time: "10.09.2025",
+    title: "Blockchain Basics"
+  },
+  {
+    linkImg: "Blockchain_Platform.png",
+    course: courseName[0],
+    time: "30.11.2025",
+    title: "Blockchain Platform"
+  },
+  {
+    linkImg: "Smart_Contract.jpg",
+    course: courseName[0],
+    time: "15.11.2025",
+    title: "Smart Contract"
+  },
+  {
+    linkImg: "Solidity_Advaned.jpg",
+    course: courseName[0],
+    time: "25.12.2025",
+    title: "Solidity Advanced"
+  }
+];
+
+// ==================== DOM ELEMENTS ====================
 const majorBtn = document.querySelectorAll('.major_btn');
 const galleryShowComponent = document.querySelector(".gallery_show");
 
-/*
-  <div class="gallery_title">
-    <p id="estd_coursera">estd 2024</p>
-    <h1>CERTIFICATION</h1>
-    <p id="course">COURSERA PLUS</p>
-  </div>
-*/
-
-const initCertificationGallery = `
-  <i class='bx bx-chevron-left'></i>
-  <i class='bx bx-chevron-right'></i>
-  <div class="certifications">
-      <div class="certification">
-          <div class="info"><p>freeCodeCamp</p><p>26.09.2025</p></div>
-          <img src="certification_img/JavaScript_Algorithm_and_Data_Structure.png" alt="JS">
-          <h3>JavaScript Algorithms</h3>
-      </div>
-      <div class="certification">
-          <div class="info"><p>Coursera</p><p>30.09.2025</p></div>
-          <img src="certification_img/Solidity_Mastery.png" alt="Solidity">
-          <h3>Solidity Mastery</h3>
-      </div>
-      <div class="certification">
-          <div class="info"><p>freeCodeCamp</p><p>21.09.2025</p></div>
-          <img src="certification_img/Responsive_Web_Design.png" alt="Responsive Web">
-          <h3>Responsive Web Design</h3>
-      </div>
-  </div>
-`;
-
+// ==================== GALLERY TEMPLATES ====================
 const initEducationGallery = `
   <div class="certifications">
       <div class="certification">
@@ -84,92 +117,122 @@ const initActivitiesGallery = `
 
 const galleries = {
   education: initEducationGallery,
-  certification: initCertificationGallery,
+  certification: 'dynamic', // Đánh dấu để khởi tạo slider
   activities: initActivitiesGallery
 };
 
-const showGallery = (e) => {
-  const type = e.target.value;
-  galleryShowComponent.innerHTML = galleries[type] || "";
+// ==================== CERTIFICATION SLIDER ====================
+let startIndex = 0;
+const showCount = 3;
+const animationDelay = 5;
+let certificationsComponent = null;
+
+/**
+ * Cập nhật gallery certifications với animation
+ * @param {string} direction - Hướng slide: "left" hoặc "right"
+ */
+const updateCertificationGallery = (direction = "right") => {
+  if (!certificationsComponent) return;
+
+  const currentItems = [];
+  for (let i = 0; i < showCount; i++) {
+    const index = (startIndex + i) % certificationImgArray.length;
+    currentItems.push(certificationImgArray[index]);
+  }
+
+  // Clear container
+  certificationsComponent.innerHTML = "";
+
+  // Tạo và thêm certification items
+  currentItems.forEach((item) => {
+    const div = document.createElement("div");
+    div.classList.add("certification");
+    div.classList.add(direction === "left" ? "left-to-right" : "right-to-left");
+    
+    div.innerHTML = `
+      <div class="info"><p>${item.course}</p><p>${item.time}</p></div>
+      <img src="certification_img/${item.linkImg}" alt="${item.title}">
+      <h3>${item.title}</h3>
+    `;
+    
+    certificationsComponent.appendChild(div);
+
+    // Trigger animation
+    setTimeout(() => div.classList.add("start"), 50);
+  });
 };
 
-majorBtn.forEach(btn => {
-  btn.addEventListener("click", () => {
-    majorBtn.forEach(button => button.classList.remove("active"));
-    btn.classList.add("active");
-  })
-})
-majorBtn.forEach(btn => btn.addEventListener('click', showGallery));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const projectLinks = {
-  "project_portfolio" : "https://github.com/TNTT2305hcmus/Portfolio_Version_v1.0",
-  "project_NFTs": "https://github.com/TNTT2305hcmus/React_Lab_freeCodeCamp",
-  "project_js_freeCodeCamp" : "https://github.com/TNTT2305hcmus/JS_freeCodeCamp_Project",
-  "project_responsive_web_freeCodeCamp" : "https://github.com/TNTT2305hcmus/HTML-CSS_freeCodeCamp_Project"
+/**
+ * Khởi tạo certification slider với navigation buttons
+ */
+function initCertificationSlider() {
+  // Tạo container và navigation
+  const html = `
+    <div class="gallery_show">
+      <i class='bx bx-chevron-left slide_Certifcation_Left'></i>
+      <div class="certifications"></div>
+      <i class='bx bx-chevron-right slide_Certification_Right'></i>
+    </div>
+  `;
+  
+  galleryShowComponent.innerHTML = html;
+
+  // Lấy DOM elements
+  const left = document.querySelector(".slide_Certifcation_Left");
+  const right = document.querySelector(".slide_Certification_Right");
+  certificationsComponent = document.querySelector(".certifications");
+
+  if (!left || !right || !certificationsComponent) return;
+
+  // Event listeners cho navigation
+  left.addEventListener("click", () => {
+    startIndex = (startIndex - 1 + certificationImgArray.length) % certificationImgArray.length;
+    updateCertificationGallery("left");
+  });
+
+  right.addEventListener("click", () => {
+    startIndex = (startIndex + 1) % certificationImgArray.length;
+    updateCertificationGallery("right");
+  });
+
+  // Hiển thị items đầu tiên
+  updateCertificationGallery();
 }
+
+// ==================== GALLERY SWITCHING ====================
+/**
+ * Chuyển đổi giữa các loại gallery
+ * @param {Event} e - Click event
+ */
+const showGallery = (e) => {
+  const type = e.target.value;
+
+  if (type === "certification") {
+    initCertificationSlider();
+  } else {
+    galleryShowComponent.innerHTML = galleries[type] || "";
+  }
+};
+
+// ==================== EVENT LISTENERS ====================
+majorBtn.forEach(btn => {
+  btn.addEventListener("click", (e) => {
+    // Remove active class from all buttons
+    majorBtn.forEach(button => button.classList.remove("active"));
+    
+    // Add active class to clicked button
+    btn.classList.add("active");
+    
+    // Show corresponding gallery
+    showGallery(e);
+  });
+});
+
+// ==================== INITIALIZATION ====================
+// Hiển thị education gallery mặc định khi load trang
+window.addEventListener('DOMContentLoaded', () => {
+  galleryShowComponent.innerHTML = initEducationGallery;
+});
 
 
 // ------------------------- VALIDATION -------------------------
