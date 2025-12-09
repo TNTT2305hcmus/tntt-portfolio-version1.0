@@ -103,7 +103,7 @@ index.html
 
 ## 📄 License
 
-This project is licensed under the **MIT License** - feel free to use it for your own portfolio!
+Feel free to use it for your own portfolio! I'm very happy to this.
 
 ---
 
