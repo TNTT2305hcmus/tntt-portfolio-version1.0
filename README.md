@@ -86,7 +86,7 @@ index.html
 
 - Go to **Settings** → **Pages**
 - Select **Branch:** `main`
-- Select **Folder:** `/Portfolio_version_1`
+- Select **Folder:** `/Portfolio_version_1.0`
 - Click **Save** 🎉
 
 ---
@@ -96,8 +96,7 @@ index.html
 **Your Name**
 
 📧 Email: trannguyentrithanh38@gmail.com
-🌐 Portfolio: ... 
-💼 LinkedIn:
+🌐 Facebook: [@TriThanh](https://www.facebook.com/tri.thanh.791990)
 🐙 GitHub: [@TranNguyenTriThanh](https://github.com/TNTT2305hcmus)
 
 ---
