@@ -8,6 +8,3 @@ Task Portfolio:
     + Thêm transform khi slide certification.
     + Xử lý logic cho việc click vào button major
 - Thêm @media để cho trang web có tính responsive 
-
-
-Như bạn thấy. Riêng phần certificationBtn, phần gallery có thêm 2 icon slide left và right. Tôi dự định sẽ thêm sự kiện vào 2 icon này để có thể slide xem nhìu certifications khác. Nếu làm cái như trên liệu có dễ xử lý <div class="certification"></div>
