@@ -42,7 +42,7 @@ A clean and responsive **Personal Portfolio Website** built using **HTML, CSS, a
 
 ## 🚀 Demo
  
-🔗 **Repository:** _Add repo link here_
+🔗 **Repository:** https://github.com/TNTT2305hcmus/tntt-portfolio-version1.0
 
 ---
 
