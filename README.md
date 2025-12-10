@@ -49,9 +49,9 @@ A clean and responsive **Personal Portfolio Website** built using **HTML, CSS, a
 ## 🛠️ Tech Stack
 
 - **HTML5** — Page structure  
-- **CSS3** — Styling, flexbox, grid, animations  
-- **JavaScript (ES6)** — Interactivity, DOM handling  
-- **GitHub Pages** — Hosting (optional)
+- **CSS3** — Styling, flexbox, conditions, shadowing, transition,...
+- **JavaScript (ES6)** — Interactivity, DOM handling, Local Storage,...
+- **GitHub Pages** — Management
 
 ---
 
