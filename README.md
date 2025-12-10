@@ -93,7 +93,7 @@ index.html
 
 ## 🧑‍💻 Author
 
-**Your Name**
+**Tran Nguyen Tri Thanh**
 
 📧 Email: trannguyentrithanh38@gmail.com
 🌐 Facebook: [@TriThanh](https://www.facebook.com/tri.thanh.791990)
@@ -103,7 +103,7 @@ index.html
 
 ## 📄 License
 
-Feel free to use it for your own portfolio! I'm very happy to this.
+Feel free to use it for your own portfolio! I'm very happy about that.
 
 ---
 
