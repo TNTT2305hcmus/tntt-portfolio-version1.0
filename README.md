@@ -5,7 +5,7 @@ A clean and responsive **Personal Portfolio Website** built using **HTML, CSS, a
 ---
 
 ## 🔗 Quick Links
-- **Portfolio (Laptop 16inch"):** [Here](https://tntt2305hcmus.github.io/tntt-portfolio-version1.0/)
+- **Portfolio (Laptop 16"):** [Watch at here](https://tntt2305hcmus.github.io/tntt-portfolio-version1.0/)
 
 ---
 
